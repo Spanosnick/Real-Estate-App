@@ -5,6 +5,7 @@ import images from "@/constants/images";
 import icons from "@/constants/icons";
 import Search from "@/components/Search";
 import {Card, FeaturedCard} from "@/components/Cards";
+import Filters from "@/components/Filters";
 
 
 export default function Index() {
@@ -44,6 +45,7 @@ export default function Index() {
                         </TouchableOpacity>
                     </View>
                 </View>
+                <Filters options={['option1','option2','option3','option4','option5','option6']}/>
 
                 <View className='flex flex-row gap-2 mt-3' >
                     <Card/>

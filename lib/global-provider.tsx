@@ -1,4 +1,4 @@
-import {createContext, useContext} from "react";
+import {createContext, ReactNode, useContext} from "react";
 import {useAppwrite} from "@/lib/useAppwrite";
 import {getCurrentUser} from "@/lib/appwrite";
 
@@ -18,7 +18,7 @@ interface GlobalContextType {
 
 const GlobalContext = createContext < GlobalContextType | undefined>( undefined)
 
-export  const GlobalProvider = ({children}: {children: React.ReactNode}) => {
+export  const GlobalProvider = ({children}: {children: ReactNode}) => {
     const {data:user,loading,refetch} = useAppwrite({
         fn: getCurrentUser,
     });

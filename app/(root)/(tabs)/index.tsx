@@ -12,11 +12,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-        <Text className='font-bold font-rubik f' > Welcome to Re Estate</Text>
-      <Link href={"/sign-in"} >Sign In</Link>
-      <Link href={"/explore"}>Explore</Link>
-      <Link href={"/profile"}>Profile</Link>
-      <Link href={"/properties/5"}>Properties</Link>
+        <Text className='font-bold font-rubik text-xl' > Welcome to Re Estate</Text>
     </View>
   );
 }

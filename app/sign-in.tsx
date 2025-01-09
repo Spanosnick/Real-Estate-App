@@ -8,24 +8,18 @@ import {useGlobalContext} from "@/lib/global-provider";
 import {Redirect} from "expo-router";
 
 export default function SignIn() {
+    const { refetch, loading, isLoggedIn } = useGlobalContext();
 
-    async function loginHandler() {
-        const {refetch , loading, isLoggedIn} = useGlobalContext();
+    if (!loading && isLoggedIn) return <Redirect href="/" />;
 
-        if (!loading && isLoggedIn) {
-            return <Redirect href='/'/>
-        }
-
-
+    const handleLogin = async () => {
         const result = await login();
-        if(result) {
-
-            console.log('Login Success');
-        }else {
-            Alert.alert('Error','Failed to login Alert');
+        if (result) {
+            refetch();
+        } else {
+            Alert.alert("Error", "Failed to login");
         }
-
-    }
+    };
 
     return (
         <SafeAreaView className='bg-white h-full'>
@@ -41,12 +35,11 @@ export default function SignIn() {
                    <Text className='text-lg font-rubik text-black-200 text-center mt-12'>
                        Login to ReState with Google
                    </Text>
-                   <TouchableOpacity onPress={loginHandler} className='bg-white shadow-md shadow-zinc-300 rounded-full w-full py-4 mt-5'>
+                   <TouchableOpacity onPress={handleLogin} className='bg-white shadow-md shadow-zinc-300 rounded-full w-full py-4 mt-5'>
                        <View className='flex flex-row items-center justify-center'>
                            <Image source={icons.google} className='w-5 h-5 ' resizeMode='contain'/>
                            <Text className='text-lg font-rubik-medium text-black-300 ml-2'>Continue with Google</Text>
                        </View>
-
                    </TouchableOpacity>
                </View>
 

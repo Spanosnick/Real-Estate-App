@@ -163,7 +163,7 @@ async function seed() {
                 ID.unique(),
                 {
                     name: `Property ${i}`,
-                    type: propertyTypes[Math.floor(Math.random() * propertyTypes.length)],
+                    // type: propertyTypes[Math.floor(Math.random() * propertyTypes.length)],
                     description: `This is the description for Property ${i}.`,
                     address: `123 Property Street, City ${i}`,
                     geolocation: `192.168.1.${i}, 192.168.1.${i}`,
